@@ -37,33 +37,38 @@ module Hydra::RemoteIdentifier
         URI.parse(File.join(resolver_url, normalize_identifier(identifier)))
       end
 
-      REQUIRED_ATTRIBUTES = ['target', 'creator', 'title', 'publisher', 'publicationyear', 'status' ].freeze
+      REQUIRED_ATTRIBUTES = ['target', 'creator', 'title', 'publisher', 'publicationyear', 'status', 'identifier_url' ].freeze
       def valid_attribute?(attribute_name)
         REQUIRED_ATTRIBUTES.include?(attribute_name.to_s)
       end
 
       def call(payload)
-        request(data_for_create(payload.with_indifferent_access))
+        request(data_for_request(payload.with_indifferent_access), payload)
       end
 
       private
 
-      def uri_for_create
-        uri_for_create = URI.parse(File.join(url, 'shoulder', shoulder))
-        uri_for_create.user = username
-        uri_for_create.password = password
-        uri_for_create
+      def uri_for_request(payload)
+        unless payload.fetch(:identifier_url).nil?
+          uri_for_request = URI.parse(payload.fetch(:identifier_url))
+        else
+          uri_for_request = URI.parse(File.join(url, 'shoulder', shoulder))
+        end
+        uri_for_request.user = username
+        uri_for_request.password = password
+        uri_for_request
       end
 
-      def request(data)
-        response = RestClient.post(uri_for_create.to_s, data, content_type: 'text/plain')
+      def request(data, payload)
+        byebug
+        response = RestClient.post(uri_for_request(payload).to_s, data, content_type: 'text/plain')
         matched_data = /\Asuccess:(.*)(?<doi>doi:[^\|]*)(.*)\Z/.match(response.body)
-        matched_data[:doi].strip
+        { identifier: matched_data[:doi].strip, identifier_url: doi_service_url(matched_data[:doi].strip) }
       rescue RestClient::Exception => e
-        raise(RemoteServiceError.new(e, uri_for_create, data))
+        raise(RemoteServiceError.new(e, uri_for_request(payload), data))
       end
 
-      def data_for_create(payload)
+      def data_for_request(payload)
         data = []
         data << "_target: #{payload.fetch(:target)}"
         data << "_status: #{payload.fetch(:status)}"
@@ -76,6 +81,10 @@ module Hydra::RemoteIdentifier
 
       def default_resolver_url
         'http://dx.doi.org/'
+      end
+
+      def doi_service_url(identifier)
+        File.join(url, 'id', identifier)
       end
     end
   end

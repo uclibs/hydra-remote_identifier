@@ -26,9 +26,9 @@ module Hydra
         target.extract_payload
       end
 
-      def update_target(identifier)
-        target.set_identifier(identifier)
-        identifier
+      def update_target(response)
+        target.set_identifier({ identifier: response.fetch(:identifier), identifier_url: response.fetch(:identifier_url) })
+        response.fetch(:identifier)
       end
 
     end
