@@ -61,7 +61,7 @@ module Hydra::RemoteIdentifier
 
       def request(data, payload)
         byebug
-        response = RestClient.post(uri_for_request(payload).to_s, data, content_type: 'text/plain')
+        response = RestClient.post(uri_for_request(payload).to_s, data, content_type: 'text/plain', accept: 'text/plain')
         matched_data = /\Asuccess:(.*)(?<doi>doi:[^\|]*)(.*)\Z/.match(response.body)
         { identifier: matched_data[:doi].strip, identifier_url: doi_service_url(matched_data[:doi].strip) }
       rescue RestClient::Exception => e
