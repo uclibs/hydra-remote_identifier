@@ -13,7 +13,7 @@ http_interactions:
         datacite.publicationyear: 2013
     headers:
       Accept:
-      - '*/*; q=0.5, application/xml'
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       Content-Type:
@@ -57,7 +57,7 @@ http_interactions:
         datacite.publicationyear: 2013
     headers:
       Accept:
-      - '*/*; q=0.5, application/xml'
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       Content-Type:
@@ -88,4 +88,49 @@ http_interactions:
       string: 'success: doi:10.5072/FK2S474W4 | ark:/b5072/fk2s474w4'
     http_version: 
   recorded_at: Fri, 14 Mar 2014 14:23:33 GMT
-recorded_with: VCR 2.6.0
+- request:
+    method: post
+    uri: https://apitest:apitest@ezid.lib.purdue.edu/id/doi:10.5072/FK2FT8XZZ
+    body:
+      encoding: UTF-8
+      string: |-
+        _target: http://google.com
+        _status: public
+        datacite.creator: Jeremy Friesen, Rajesh Balekai
+        datacite.title: My Article
+        datacite.publisher: Me Myself and I
+        datacite.publicationyear: 2013
+    headers:
+      Accept:
+      - text/plain
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - text/plain
+      Content-Length:
+      - '185'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: BAD REQUEST
+    headers:
+      Date:
+      - Mon, 15 Feb 2016 13:28:53 GMT
+      Server:
+      - Apache/2.2.17 (Unix) mod_ssl/2.2.17 OpenSSL/1.0.1k-fips mod_wsgi/4.4.9 Python/2.7.6
+      Content-Length:
+      - '39'
+      Vary:
+      - Cookie
+      Connection:
+      - close
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: 'error: bad request - no such identifier'
+    http_version: 
+  recorded_at: Mon, 15 Feb 2016 13:28:53 GMT
+recorded_with: VCR 3.0.1

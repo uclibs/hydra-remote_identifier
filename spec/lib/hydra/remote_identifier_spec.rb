@@ -6,6 +6,8 @@ module Hydra::RemoteIdentifier
     let(:target_class) {
       Class.new {
         def url; 'http://google.com'; end
+        def identifier_url; nil; end
+        def doi_status; 'public'; end
         def creator; 'my creator'; end
         def title; 'my title'; end
         def publisher; 'my publisher'; end
@@ -16,7 +18,7 @@ module Hydra::RemoteIdentifier
 
     let(:target) { target_class.new }
     let(:expected_doi) {
-      'doi:10.5072/FK2FT8XZZ' # From the doi-create cassette
+      {:identifier=>"doi:10.5072/FK2FT8XZZ", :identifier_url=>"https://ezid.lib.purdue.edu/id/doi:10.5072/FK2FT8XZZ"} # From the doi-create cassette
     }
     let(:doi_options) { RemoteServices::Doi::TEST_CONFIGURATION }
 
@@ -25,6 +27,8 @@ module Hydra::RemoteIdentifier
         config.remote_service(:doi, doi_options) do |doi|
           doi.register(target_class) do |map|
             map.target :url
+            map.status :doi_status
+            map.identifier_url :identifier_url
             map.creator :creator
             map.title :title
             map.publisher :publisher
@@ -108,8 +112,8 @@ module Hydra::RemoteIdentifier
 
     context '.remote_uri_for' do
       it {
-        expect(Hydra::RemoteIdentifier.remote_uri_for(:doi, expected_doi)).
-        to eq(URI.parse(File.join(doi_options.fetch(:resolver_url), expected_doi)))
+        expect(Hydra::RemoteIdentifier.remote_uri_for(:doi, expected_doi.fetch(:identifier))).
+        to eq(URI.parse(File.join(doi_options.fetch(:resolver_url), expected_doi.fetch(:identifier))))
       }
     end
 

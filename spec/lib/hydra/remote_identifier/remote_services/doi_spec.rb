@@ -12,12 +12,17 @@ module Hydra::RemoteIdentifier
           creator: ['Jeremy Friesen', 'Rajesh Balekai'],
           title: 'My Article',
           publisher: 'Me Myself and I',
-          publicationyear: "2013"
+          publicationyear: "2013",
+          status: "public",
+          identifier_url: nil
         }
       }
       let(:expected_doi) {
         # From the doi-create cassette
-        'doi:10.5072/FK23J3QV8'
+        {
+          identifier: "doi:10.5072/FK23J3QV8",
+          identifier_url: "https://ezid.lib.purdue.edu/id/doi:10.5072/FK23J3QV8"
+        }
       }
       subject { RemoteServices::Doi.new(configuration) }
 
@@ -51,9 +56,9 @@ module Hydra::RemoteIdentifier
       end
 
       context '.remote_uri_for' do
-        let(:expected_uri) { URI.parse(File.join(subject.resolver_url, expected_doi))}
+        let(:expected_uri) { URI.parse(File.join(subject.resolver_url, expected_doi.fetch(:identifier)))}
         it 'should be based on configuration' do
-          expect(subject.remote_uri_for(expected_doi)).to eq(expected_uri)
+          expect(subject.remote_uri_for(expected_doi.fetch(:identifier))).to eq(expected_uri)
         end
       end
     end
