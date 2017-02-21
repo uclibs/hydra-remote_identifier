@@ -20,8 +20,8 @@ module Hydra::RemoteIdentifier
       let(:expected_doi) {
         # From the doi-create cassette
         {
-          identifier: "doi:10.5072/FK23J3QV8",
-          identifier_url: "https://ezid.lib.purdue.edu/id/doi:10.5072/FK23J3QV8"
+          identifier: "doi:10.5072/FK2PZ57796",
+          identifier_url: "https://ezid.lib.purdue.edu/id/doi:10.5072/FK2PZ57796"
         }
       }
       subject { RemoteServices::Doi.new(configuration) }
@@ -59,6 +59,10 @@ module Hydra::RemoteIdentifier
         let(:expected_uri) { URI.parse(File.join(subject.resolver_url, expected_doi.fetch(:identifier)))}
         it 'should be based on configuration' do
           expect(subject.remote_uri_for(expected_doi.fetch(:identifier))).to eq(expected_uri)
+        end
+
+        it 'should handle charaters that need to be escaped' do
+          expect(subject.remote_uri_for("[test]{me}+")).to eq(URI.parse("http://dx.doi.org/%5Btest%5D%7Bme%7D%2B"))
         end
       end
     end
