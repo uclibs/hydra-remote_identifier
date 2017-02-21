@@ -18,7 +18,7 @@ module Hydra::RemoteIdentifier
 
     let(:target) { target_class.new }
     let(:expected_doi) {
-      {:identifier=>"doi:10.5072/FK2FT8XZZ", :identifier_url=>"https://ezid.lib.purdue.edu/id/doi:10.5072/FK2FT8XZZ"} # From the doi-create cassette
+      {:identifier=>"doi:10.5072/FK2K64HF49", :identifier_url=>"https://ezid.lib.purdue.edu/id/doi:10.5072/FK2K64HF49"} # From the doi-create cassette
     }
     let(:doi_options) { RemoteServices::Doi::TEST_CONFIGURATION }
 

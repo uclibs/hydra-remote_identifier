@@ -34,7 +34,7 @@ module Hydra::RemoteIdentifier
       end
 
       def remote_uri_for(identifier)
-        URI.parse(File.join(resolver_url, normalize_identifier(identifier)))
+        URI.parse(File.join(resolver_url, normalize_identifier(escaped identifier)))
       end
 
       REQUIRED_ATTRIBUTES = ['target', 'creator', 'title', 'publisher', 'publicationyear', 'status', 'identifier_url' ].freeze
@@ -85,6 +85,14 @@ module Hydra::RemoteIdentifier
 
       def doi_service_url(identifier)
         File.join(url, 'id', identifier)
+      end
+
+      def escaped(identifier)
+        URI.escape(identifier).
+          gsub("[","%5B").
+          gsub("]","%5D").
+          gsub("+","%2B").
+          gsub("?","%3F")
       end
     end
   end
