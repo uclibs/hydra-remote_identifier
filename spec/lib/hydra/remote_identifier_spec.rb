@@ -10,6 +10,7 @@ module Hydra::RemoteIdentifier
         def doi_status; 'public'; end
         def creator; 'my creator'; end
         def title; 'my title'; end
+        def profile; 'datacite'; end
         def publisher; 'my publisher'; end
         def publicationyear; '2013'; end
         attr_accessor :set_identifier
@@ -28,6 +29,7 @@ module Hydra::RemoteIdentifier
           doi.register(target_class) do |map|
             map.target :url
             map.status :doi_status
+            map.profile :profile
             map.identifier_url :identifier_url
             map.creator :creator
             map.title :title

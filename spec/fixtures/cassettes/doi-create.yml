@@ -10,6 +10,7 @@ http_interactions:
         datacite.creator: Jeremy Friesen, Rajesh Balekai
         datacite.title: My Article
         datacite.publisher: Me Myself and I
+        datacite.profile: datacite
         datacite.publicationyear: 2013
     headers:
       Accept:
@@ -54,6 +55,7 @@ http_interactions:
         datacite.creator: Jeremy Friesen
         datacite.title: My Article
         datacite.publisher: Me Myself and I
+        datacite.profile: datacite
         datacite.publicationyear: 2013
     headers:
       Accept:
@@ -99,6 +101,7 @@ http_interactions:
         datacite.creator: Jeremy Friesen, Rajesh Balekai
         datacite.title: My Article
         datacite.publisher: Me Myself and I
+        datacite.profile: datacite
         datacite.publicationyear: 2013
     headers:
       Accept:
@@ -144,6 +147,7 @@ http_interactions:
         datacite.creator: Jeremy Friesen, Rajesh Balekai
         datacite.title: My Article
         datacite.publisher: Me Myself and I
+        datacite.profile: datacite
         datacite.publicationyear: 2013
     headers:
       Accept:

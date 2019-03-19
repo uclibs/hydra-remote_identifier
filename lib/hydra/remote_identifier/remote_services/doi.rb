@@ -37,7 +37,7 @@ module Hydra::RemoteIdentifier
         URI.parse(File.join(resolver_url, normalize_identifier(escaped identifier)))
       end
 
-      REQUIRED_ATTRIBUTES = ['target', 'creator', 'title', 'publisher', 'publicationyear', 'status', 'identifier_url' ].freeze
+      REQUIRED_ATTRIBUTES = ['profile', 'target', 'creator', 'title', 'publisher', 'publicationyear', 'status', 'identifier_url' ].freeze
       def valid_attribute?(attribute_name)
         REQUIRED_ATTRIBUTES.include?(attribute_name.to_s)
       end
@@ -72,6 +72,7 @@ module Hydra::RemoteIdentifier
         data = []
         data << "_target: #{payload.fetch(:target)}"
         data << "_status: #{payload.fetch(:status)}"
+        data << "_profile: #{payload.fetch(:profile)}"
         data << "datacite.creator: #{Array(payload.fetch(:creator)).join(', ')}"
         data << "datacite.title: #{Array(payload.fetch(:title)).join('; ')}"
         data << "datacite.publisher: #{Array(payload.fetch(:publisher)).join(', ')}"

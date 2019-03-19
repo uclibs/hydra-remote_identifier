@@ -14,6 +14,7 @@ module Hydra::RemoteIdentifier
           publisher: 'Me Myself and I',
           publicationyear: "2013",
           status: "public",
+          profile: "datacite",
           identifier_url: nil
         }
       }
