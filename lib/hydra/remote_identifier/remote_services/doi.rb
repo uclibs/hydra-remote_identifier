@@ -12,7 +12,7 @@ module Hydra::RemoteIdentifier
         username: 'apitest',
         password: 'apitest',
         shoulder: 'doi:10.5072/FK2',
-        url: "https://ezid.lib.purdue.edu/",
+        url: "https://ez.test.datacite.org/",
         resolver_url: 'http://dx.doi.org/'
       }
 

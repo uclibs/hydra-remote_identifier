@@ -14,6 +14,7 @@ module Hydra::RemoteIdentifier
           publisher: 'Me Myself and I',
           publicationyear: "2013",
           status: "public",
+          profile: "datacite",
           identifier_url: nil
         }
       }
@@ -21,7 +22,7 @@ module Hydra::RemoteIdentifier
         # From the doi-create cassette
         {
           identifier: "doi:10.5072/FK2PZ57796",
-          identifier_url: "https://ezid.lib.purdue.edu/id/doi:10.5072/FK2PZ57796"
+          identifier_url: "https://ez.test.datacite.org/id/doi:10.5072/FK2PZ57796"
         }
       }
       subject { RemoteServices::Doi.new(configuration) }

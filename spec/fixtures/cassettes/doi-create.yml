@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://apitest:apitest@ezid.lib.purdue.edu/shoulder/doi:10.5072/FK2
+    uri: https://apitest:apitest@ez.test.datacite.org/shoulder/doi:10.5072/FK2
     body:
       encoding: UTF-8
       string: |-
@@ -10,6 +10,7 @@ http_interactions:
         datacite.creator: Jeremy Friesen, Rajesh Balekai
         datacite.title: My Article
         datacite.publisher: Me Myself and I
+        datacite.profile: datacite
         datacite.publicationyear: 2013
     headers:
       Accept:
@@ -46,7 +47,7 @@ http_interactions:
   recorded_at: Thu, 03 Oct 2013 17:50:54 GMT
 - request:
     method: post
-    uri: https://apitest:apitest@ezid.lib.purdue.edu/shoulder/doi:10.5072/FK2
+    uri: https://apitest:apitest@ez.test.datacite.org/shoulder/doi:10.5072/FK2
     body:
       encoding: UTF-8
       string: |-
@@ -54,6 +55,7 @@ http_interactions:
         datacite.creator: Jeremy Friesen
         datacite.title: My Article
         datacite.publisher: Me Myself and I
+        datacite.profile: datacite
         datacite.publicationyear: 2013
     headers:
       Accept:
@@ -90,7 +92,7 @@ http_interactions:
   recorded_at: Fri, 14 Mar 2014 14:23:33 GMT
 - request:
     method: post
-    uri: https://apitest:apitest@ezid.lib.purdue.edu/id/doi:10.5072/FK2FT8XZZ
+    uri: https://apitest:apitest@ez.test.datacite.org/id/doi:10.5072/FK2FT8XZZ
     body:
       encoding: UTF-8
       string: |-
@@ -99,6 +101,7 @@ http_interactions:
         datacite.creator: Jeremy Friesen, Rajesh Balekai
         datacite.title: My Article
         datacite.publisher: Me Myself and I
+        datacite.profile: datacite
         datacite.publicationyear: 2013
     headers:
       Accept:
@@ -135,7 +138,7 @@ http_interactions:
   recorded_at: Mon, 15 Feb 2016 13:28:53 GMT
 - request:
     method: post
-    uri: https://ezid.lib.purdue.edu/shoulder/doi:10.5072/FK2
+    uri: https://ez.test.datacite.org/shoulder/doi:10.5072/FK2
     body:
       encoding: UTF-8
       string: |-
@@ -144,6 +147,7 @@ http_interactions:
         datacite.creator: Jeremy Friesen, Rajesh Balekai
         datacite.title: My Article
         datacite.publisher: Me Myself and I
+        datacite.profile: datacite
         datacite.publicationyear: 2013
     headers:
       Accept:
