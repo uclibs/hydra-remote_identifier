@@ -14,15 +14,14 @@ module Hydra::RemoteIdentifier
           publisher: 'Me Myself and I',
           publicationyear: "2013",
           status: "public",
-          profile: "datacite",
           identifier_url: nil
         }
       }
       let(:expected_doi) {
         # From the doi-create cassette
         {
-          identifier: "doi:10.5072/FK2PZ57796",
-          identifier_url: "https://ez.test.datacite.org/id/doi:10.5072/FK2PZ57796"
+          identifier: "doi:10.7052/FK2PZ57796",
+          identifier_url: "https://doi.test.datacite.org/id/doi:10.7052/FK2PZ57796"
         }
       }
       subject { RemoteServices::Doi.new(configuration) }
@@ -45,7 +44,7 @@ module Hydra::RemoteIdentifier
 
       context '.call' do
         it 'should post to remote service', VCR::SpecSupport(cassette_name: 'doi-create') do
-          expect(subject.call(payload)).to eq(expected_doi)
+           expect(subject.call(payload)).to eq(expected_doi)
         end
 
         it 'should raise RemoteServiceError when request was invalid' do

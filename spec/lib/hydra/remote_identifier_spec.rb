@@ -10,7 +10,6 @@ module Hydra::RemoteIdentifier
         def doi_status; 'public'; end
         def creator; 'my creator'; end
         def title; 'my title'; end
-        def profile; "datacite"; end
         def publisher; 'my publisher'; end
         def publicationyear; '2013'; end
         attr_accessor :set_identifier
@@ -19,7 +18,7 @@ module Hydra::RemoteIdentifier
 
     let(:target) { target_class.new }
     let(:expected_doi) {
-      {:identifier=>"doi:10.5072/FK2K64HF49", :identifier_url=>"https://ez.test.datacite.org/id/doi:10.5072/FK2K64HF49"} # From the doi-create cassette
+      {:identifier=>"doi:10.7052/FK2K64HF49", :identifier_url=>"https://doi.test.datacite.org/id/doi:10.7052/FK2K64HF49"} # From the doi-create cassette
     }
     let(:doi_options) { RemoteServices::Doi::TEST_CONFIGURATION }
 
@@ -29,7 +28,6 @@ module Hydra::RemoteIdentifier
           doi.register(target_class) do |map|
             map.target :url
             map.status :doi_status
-            map.profile :profile
             map.identifier_url :identifier_url
             map.creator :creator
             map.title :title
@@ -164,8 +162,8 @@ module Hydra::RemoteIdentifier
         RemoteServices::Doi::TEST_CONFIGURATION.merge(
           username: ENV['DOI_API_USERNAME'],
           password: ENV['DOI_API_PASSWORD'],
-          shoulder: 'doi:10.5072/FK2',
-          url: "https://ez.test.datacite.org/"
+          shoulder: 'doi:10.7052/FK2',
+          url: "https://doi.test.datacite.org/"
         )
       }
 
