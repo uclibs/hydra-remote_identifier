@@ -141,13 +141,13 @@ module Hydra::RemoteIdentifier
     end
 
     context '.mint' do
-      it 'works!', VCR::SpecSupport(record: :new_episodes, cassette_name: 'doi-integration') do
+      it 'works!' do
         expect {
           Hydra::RemoteIdentifier.mint(:doi, target)
         }.to change(target, :set_identifier).from(nil).to(expected_doi)
       end
 
-      it 'returns true minting occurred', VCR::SpecSupport(record: :new_episodes, cassette_name: 'doi-integration') do
+      it 'returns true minting occurred' do
         expect(Hydra::RemoteIdentifier.mint(:doi, target)).to eq(true)
       end
 

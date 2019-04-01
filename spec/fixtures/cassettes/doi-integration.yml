@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://apitest:apitest@doi.test.datacite.org/shoulder/doi:10.7052/FK2
+    uri: https://CIN.TEST:ox6iQPX2tWcveNoUfM3qdf82aoeP@api.test.datacite.org/dois
     body:
       encoding: UTF-8
       string: |-
@@ -41,12 +41,12 @@ http_interactions:
       - text/plain; charset=UTF-8
     body:
       encoding: UTF-8
-      string: 'success: doi:10.7052/FK2FT8XZZ | ark:/b7052/fk2ft8xzz'
+      string: 'success: doi:10.5072/FK2FT8XZZ | ark:/b5072/fk2ft8xzz'
     http_version: 
   recorded_at: Thu, 03 Oct 2013 19:10:25 GMT
 - request:
     method: post
-    uri: https://apitest:apitest@doi.test.datacite.org/shoulder/doi:10.7052/FK2
+    uri: https://CIN.TEST:ox6iQPX2tWcveNoUfM3qdf82aoeP@api.test.datacite.org/dois
     body:
       encoding: UTF-8
       string: |-
@@ -85,283 +85,126 @@ http_interactions:
       - text/plain; charset=UTF-8
     body:
       encoding: UTF-8
-      string: 'success: doi:10.7052/FK2NC6D3G | ark:/b7052/fk2nc6d3g'
+      string: 'success: doi:10.5072/FK2NC6D3G | ark:/b5072/fk2nc6d3g'
     http_version: 
   recorded_at: Fri, 14 Mar 2014 14:23:38 GMT
 - request:
     method: post
-    uri: https://doi.test.datacite.org/shoulder/doi:10.7052/FK2
+    uri: https://api.test.datacite.org/dois
     body:
       encoding: UTF-8
-      string: |-
-        _target: http://google.com
-        _status: public
-        datacite.creator: my creator
-        datacite.title: my title
-        datacite.publisher: my publisher
-        datacite.publicationyear: 2013
-        datacite.profile: datacite
+      string: target=http%3A%2F%2Fgoogle.com&status=public&profile=datacite&identifier_url&creator=my+creator&title=my+title&publisher=my+publisher&publicationyear=2013
     headers:
       Accept:
-      - text/plain
+      - "*/*"
       Accept-Encoding:
       - gzip, deflate
-      Content-Type:
-      - text/plain
-      Content-Length:
-      - '160'
       User-Agent:
-      - Ruby
+      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.5.1p57
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Content-Length:
+      - '154'
+      Host:
+      - api.test.datacite.org
       Authorization:
-      - Basic YXBpdGVzdDphcGl0ZXN0
+      - Basic Q0lOLlRFU1Q6b3g2aVFQWDJ0V2N2ZU5vVWZNM3FkZjgyYW9lUA==
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Wed, 27 Mar 2019 17:30:29 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 400 Bad Request
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept-Encoding, Origin
+      Content-Encoding:
+      - gzip
+      X-Request-Id:
+      - f77b88ad-8452-45d3-b4e8-0363fcf7aec5
+      X-Runtime:
+      - '0.010645'
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
+      Server:
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIADWzm1wAA6pWSi0qyi8qVrKKrlYqLkksKQUylUwMDJR0lEoyS3JSgbzI/FKFvNTUFIWSfIWCovyyzJRUhUSFgsTKnPzEFIW0/Jyc/PLMvHSFkoxUBa9gfz/HAE+F4oLUZKXa2FoAAAAA//8DAEEfbh5gAAAA
+    http_version: 
+  recorded_at: Wed, 27 Mar 2019 17:30:29 GMT
+- request:
+    method: post
+    uri: https://api.test.datacite.org/dois
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"dois","attributes":{"doi":"10.23676/ucl-XYUGQUZL","event":"public","creators":[{"name":"my
+        creator"}],"titles":[{"title":"my title"}],"publisher":"my publisher","publicationYear":"2013"}}}'
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.5.1p57
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '205'
+      Host:
+      - api.test.datacite.org
+      Authorization:
+      - Basic Q0lOLlRFU1Q6b3g2aVFQWDJ0V2N2ZU5vVWZNM3FkZjgyYW9lUA==
   response:
     status:
       code: 201
-      message: CREATED
+      message: Created
     headers:
       Date:
-      - Tue, 21 Feb 2017 16:14:18 GMT
-      Server:
-      - Apache/2.2.17 (Unix) mod_ssl/2.2.17 OpenSSL/1.0.1k-fips mod_wsgi/4.4.9 Python/2.7.12
-      Content-Length:
-      - '55'
+      - Wed, 27 Mar 2019 18:24:28 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      Cache-Control:
+      - max-age=0, private, must-revalidate
       Vary:
-      - Accept-Language,Cookie
-      Content-Language:
-      - en
-      Content-Type:
-      - text/plain; charset=UTF-8
-    body:
-      encoding: UTF-8
-      string: 'success: doi:10.7052/FK2K64HF49 | ark:/b7052/fk2k64hf49'
-    http_version: 
-  recorded_at: Tue, 21 Feb 2017 16:14:19 GMT
-- request:
-    method: post
-    uri: https://doi.test.datacite.org/shoulder/doi:10.7052/FK2
-    body:
-      encoding: UTF-8
-      string: |-
-        _target: http://google.com
-        _status: public
-        datacite.creator: my creator
-        datacite.title: my title
-        datacite.publisher: my publisher
-        datacite.publicationyear: 2013
-    headers:
-      Accept:
-      - text/plain
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - rest-client/2.0.2 (darwin17.6.0 x86_64) ruby/2.5.1p57
-      Content-Type:
-      - text/plain
-      Content-Length:
-      - '160'
-      Host:
-      - doi.test.datacite.org
-      Authorization:
-      - Basic YXBpdGVzdDphcGl0ZXN0
-  response:
-    status:
-      code: 405
-      message: Method Not Allowed
-    headers:
-      Content-Type:
-      - application/xml
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Allow:
-      - HEAD, DELETE, GET, PUT
-      Date:
-      - Mon, 25 Mar 2019 21:04:19 GMT
+      - Accept-Encoding, Origin
+      Content-Encoding:
+      - gzip
+      X-Credential-Username:
+      - cin.test
+      X-Request-Id:
+      - 210a4a71-2fd0-4817-8361-2e03c20de50b
+      Location:
+      - https://api.test.datacite.org/dois/2358559
+      Etag:
+      - W/"4d652e402cb4dd07ee265e2e6e9ff179"
+      X-Runtime:
+      - '0.132809'
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
       Server:
-      - AmazonS3
-      X-Cache:
-      - Error from cloudfront
-      Via:
-      - 1.1 1c0b9f2790e77d82d7169b1fa7d0f9cc.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 4oGlWl2LT-YD_lsyeX7O9yWpRe9Zteam-AZvcy-apTJBbGNh5u5maA==
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
     body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" encoding="UTF-8"?>
-        <Error><Code>MethodNotAllowed</Code><Message>The specified method is not allowed against this resource.</Message><Method>POST</Method><ResourceType>OBJECT</ResourceType><RequestId>D48EB1C9FB9A0CCE</RequestId><HostId>ub4dogCBJLnVdG6DrGXSEhHcbaqWYgRX2EhzzSgQBo7Uy4WRyQeHQY4pizkDPZBZv7w3mAoS2vA=</HostId></Error>
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIANy/m1wAA5RWXXOqSBD9KxaPm5ssQrwJPq0xiR+LhEIFJZWHYRhhzPCxMKCY8r9vj6gk3tTe2ieZ7tM9Z7pnTvsh+YgjqfshUV/qSm35RlF/3v38s8DselsVwT/Fjkk/JF6lBNx+QnNYIc4z6hWc5CIQjP8RmWZkRbefAGDLi1Vtu8BSn8ScrijJIHFcMPZDwhlBPBHr1w8pRpFgEVWto1navwE3yhmpAYfPGlF/Cn9aeIzmIclqR7OE7EnMEY2Fq97u4MSI0yReEgRmRW6rgrC3Jpg3rCDuUIGkYQp1JOcFQ3FQoICc1qJ+Z2dGGGD90a+nzemuga2SLELNniXggNY5CQ1Cnus052cCJMcZTQX3c1BAEj2pz9PkLWKfxoFFViQjMW423EYMSmQ+areeswn8yK6wwkpvLdPJ9HYzog/Mi4zSHbDC3cnUtq2BPguoubv92xyOGVa0No4MNhqG3Bt0di9xuEMzmaKhJePHpNRVX/WrjjqpOiWOcDlZ9zaTqbaczbezpRIyz3niyOns/MFzsVTm9JTHnI4Tf2htXug97P0sLx0j9QfzwlPHsa4aazSw+XKqZe5iXLjOhhv9UUCGRvoSH33zbblUnmXkaMX/z/VwxmPFSFynHeqRFQLHNVpYTI+0yq007i6sUFc4w1GHeX1Z1pU2A8z7UtihDm5/dNWnvcAcsHfX6QAXN3UXowA5FvNiK3UjxjCzOngw10bvljmdjq4ms14xWU8UY7cs7bkx0e3Qtee+ZdvpxOxrqTuwC3/AIuTYlRkkwehxu8aRDdy0CkNPRv3eF9sBI2z93v1SHTPgVuL3Tug58ytv8R6cbetNeekX3EWcrhiV6zzLnno8T1+73PMeOMnewN6d9jOHFtR4y8yo3RmdvvuaDPXL3Vkdo6u1/ZQDD23qDdgO+lHVcQ/tZbRNMdwTwe+Lvz77xnfGOXIM4AJ3ljHgDzVc97aT3Rm/hjOlntJx4QynOAV6vRN3Qxf3uA/9XBilvxivBTeQiCJjn189PNl5Y4kIR0I/7dPblOEN45BEjeX4sJMiw2c1oHkPc1rCeoVYTsDNQRCEvmZoxSWhEChvgkFMxIM1P+nJQf+IUGwQKO1aVq+Vu1n7vqvcdpX7G1mW3UOWAOQBHrl/CitS/3dh+6M+CcUIaXpQeMwonPug9Z+HBabxDWgeb+ZDDcyl/V7UxqeoiXl92wsrjTErfEHh9bdZLgfNUf7nMT1oIa9ayarVh4w0joFwS6dehjJK8tZ1awYZWz2MkyIWmfMq8hKhbv2RcTN7ms7AVp0EXjsOAsyNeocx/OQtG8WtCWXS2fsUISpyQIcThrK/CnxD/EL6orxnMU4ALDRX+uPiEv3aOWXW/tlt33VV7dS5b/rUESC1022rJ1Bzi3hWwCUKUW6iPN8kmV+bvmtlmiUljNnsu2Y2HTih6k7WI/w47OtmXvxd+Bx5xO5Fv9/2/wIAAP//AwDzEuy6YAgAAA==
     http_version: 
-  recorded_at: Mon, 25 Mar 2019 21:04:19 GMT
-- request:
-    method: post
-    uri: https://doi.test.datacite.org/shoulder/doi:10.7052/FK2
-    body:
-      encoding: UTF-8
-      string: |-
-        _target: http://google.com
-        _status: public
-        datacite.creator: my creator
-        datacite.title: my title
-        datacite.publisher: my publisher
-        datacite.publicationyear: 2013
-    headers:
-      Accept:
-      - text/plain
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - rest-client/2.0.2 (darwin17.6.0 x86_64) ruby/2.5.1p57
-      Content-Type:
-      - text/plain
-      Content-Length:
-      - '160'
-      Host:
-      - doi.test.datacite.org
-      Authorization:
-      - Basic YXBpdGVzdDphcGl0ZXN0
-  response:
-    status:
-      code: 405
-      message: Method Not Allowed
-    headers:
-      Content-Type:
-      - application/xml
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Allow:
-      - HEAD, DELETE, GET, PUT
-      Date:
-      - Tue, 26 Mar 2019 15:17:33 GMT
-      Server:
-      - AmazonS3
-      X-Cache:
-      - Error from cloudfront
-      Via:
-      - 1.1 5da5773a6acab8f3aabf385b38683f20.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - _3fNYHdFSAoLzGh1HT35s9woeAxJmHKxvm66I2EoDXBwiLon4oEiiw==
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" encoding="UTF-8"?>
-        <Error><Code>MethodNotAllowed</Code><Message>The specified method is not allowed against this resource.</Message><Method>POST</Method><ResourceType>OBJECT</ResourceType><RequestId>843B8EA541D7DAF1</RequestId><HostId>7oCZRtTLcKzCASMrR5yEH5dpxiqxT9vmaSOzOVGonVDUG9qyTs/VJkTCAVPxt+5k6j266BNkoUk=</HostId></Error>
-    http_version: 
-  recorded_at: Tue, 26 Mar 2019 15:17:33 GMT
-- request:
-    method: post
-    uri: https://doi.test.datacite.org/shoulder/doi:10.7052/FK2
-    body:
-      encoding: UTF-8
-      string: |-
-        _target: http://google.com
-        _status: public
-        datacite.creator: my creator
-        datacite.title: my title
-        datacite.publisher: my publisher
-        datacite.publicationyear: 2013
-    headers:
-      Accept:
-      - text/plain
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - rest-client/2.0.2 (darwin17.6.0 x86_64) ruby/2.5.1p57
-      Content-Type:
-      - text/plain
-      Content-Length:
-      - '160'
-      Host:
-      - doi.test.datacite.org
-      Authorization:
-      - Basic YXBpdGVzdDphcGl0ZXN0
-  response:
-    status:
-      code: 405
-      message: Method Not Allowed
-    headers:
-      Content-Type:
-      - application/xml
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Allow:
-      - HEAD, DELETE, GET, PUT
-      Date:
-      - Tue, 26 Mar 2019 15:19:15 GMT
-      Server:
-      - AmazonS3
-      X-Cache:
-      - Error from cloudfront
-      Via:
-      - 1.1 8947f739c9a373d1bcab90a3dfa13970.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - srGKqSmj8lTCo6ifgL-IUQXWo2dHhl8sPL1lO9Kl8KIW2wYilM7G6A==
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" encoding="UTF-8"?>
-        <Error><Code>MethodNotAllowed</Code><Message>The specified method is not allowed against this resource.</Message><Method>POST</Method><ResourceType>OBJECT</ResourceType><RequestId>DE9C3F20337406D2</RequestId><HostId>jLmPkJjcsJFWrFttYXLmlYEZFMbp9YhmO2IBrTvRxqAEWqchCtikn4rSFGDAjjyLP+LFp4JS/H0=</HostId></Error>
-    http_version: 
-  recorded_at: Tue, 26 Mar 2019 15:19:16 GMT
-- request:
-    method: post
-    uri: https://doi.test.datacite.org/shoulder/doi:10.5072/FK2
-    body:
-      encoding: UTF-8
-      string: |-
-        _target: http://google.com
-        _status: public
-        datacite.creator: my creator
-        datacite.title: my title
-        datacite.publisher: my publisher
-        datacite.publicationyear: 2013
-    headers:
-      Accept:
-      - text/plain
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - rest-client/2.0.2 (darwin17.6.0 x86_64) ruby/2.5.1p57
-      Content-Type:
-      - text/plain
-      Content-Length:
-      - '160'
-      Host:
-      - doi.test.datacite.org
-      Authorization:
-      - Basic YXBpdGVzdDphcGl0ZXN0
-  response:
-    status:
-      code: 405
-      message: Method Not Allowed
-    headers:
-      Content-Type:
-      - application/xml
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Allow:
-      - HEAD, DELETE, GET, PUT
-      Date:
-      - Tue, 26 Mar 2019 15:20:41 GMT
-      Server:
-      - AmazonS3
-      X-Cache:
-      - Error from cloudfront
-      Via:
-      - 1.1 c0098ca8d6549ce8db6f28ee0b22a4ce.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - OeTR_dOU9l68uyuVgRuWxWAvuyo6hWd98QTvrfsEStb3V43sFTGnEw==
-    body:
-      encoding: UTF-8
-      string: |-
-        <?xml version="1.0" encoding="UTF-8"?>
-        <Error><Code>MethodNotAllowed</Code><Message>The specified method is not allowed against this resource.</Message><Method>POST</Method><ResourceType>OBJECT</ResourceType><RequestId>8FEA1DB7983D59B6</RequestId><HostId>vXZCkKsGDbc9dg1LzsEFXnPy+VLpR1yYI2xX+oGMpasIJnTWKw5+/+kg0jOsUcsn9qsLT9IUipw=</HostId></Error>
-    http_version: 
-  recorded_at: Tue, 26 Mar 2019 15:20:41 GMT
+  recorded_at: Wed, 27 Mar 2019 18:24:28 GMT
 recorded_with: VCR 4.0.0

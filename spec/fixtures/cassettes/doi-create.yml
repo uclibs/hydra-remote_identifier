@@ -2,15 +2,14 @@
 http_interactions:
 - request:
     method: post
-    uri: https://apitest:apitest@doi.test.datacite.org/shoulder/doi:10.7052/FK2
-    body:
+    uri: https://CIN.TEST:ox6iQPX2tWcveNoUfM3qdf82aoeP@api.test.datacite.org/dois
+      body:
       encoding: UTF-8
       string: |-
         _target: http://google.com
         datacite.creator: Jeremy Friesen, Rajesh Balekai
         datacite.title: My Article
         datacite.publisher: Me Myself and I
-        datacite.profile: datacite
         datacite.publicationyear: 2013
     headers:
       Accept:
@@ -47,7 +46,7 @@ http_interactions:
   recorded_at: Thu, 03 Oct 2013 17:50:54 GMT
 - request:
     method: post
-    uri: https://apitest:apitest@doi.test.datacite.org/shoulder/doi:10.7052/FK2
+    uri: https://CIN.TEST:ox6iQPX2tWcveNoUfM3qdf82aoeP@api.test.datacite.org/dois
     body:
       encoding: UTF-8
       string: |-
@@ -91,94 +90,58 @@ http_interactions:
   recorded_at: Fri, 14 Mar 2014 14:23:33 GMT
 - request:
     method: post
-    uri: https://apitest:apitest@doi.test.datacite.org/id/doi:10.7052/FK2FT8XZZ
+    uri: https://api.test.datacite.org/dois
     body:
       encoding: UTF-8
-      string: |-
-        _target: http://google.com
-        _status: public
-        datacite.creator: Jeremy Friesen, Rajesh Balekai
-        datacite.title: My Article
-        datacite.publisher: Me Myself and I
-        datacite.publicationyear: 2013
+      string: target=http%3A%2F%2Fgoogle.com&creator[]=Jeremy+Friesen&creator[]=Rajesh+Balekai&title=My+Article&publisher=Me+Myself+and+I&publicationyear=2013&status=public&profile=datacite&identifier_url
     headers:
       Accept:
-      - text/plain
+      - "*/*"
       Accept-Encoding:
       - gzip, deflate
-      Content-Type:
-      - text/plain
-      Content-Length:
-      - '185'
       User-Agent:
-      - Ruby
+      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.5.1p57
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Content-Length:
+      - '190'
+      Host:
+      - api.test.datacite.org
+
+      Authorization:
+      - Basic Q0lOLlRFU1Q6b3g2aVFQWDJ0V2N2ZU5vVWZNM3FkZjgyYW9lUA==
   response:
     status:
       code: 400
-      message: BAD REQUEST
+      message: Bad Request
     headers:
       Date:
-      - Mon, 15 Feb 2016 13:28:53 GMT
-      Server:
-      - Apache/2.2.17 (Unix) mod_ssl/2.2.17 OpenSSL/1.0.1k-fips mod_wsgi/4.4.9 Python/2.7.6
-      Content-Length:
-      - '39'
-      Vary:
-      - Cookie
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
       Connection:
-      - close
-      Content-Type:
-      - text/plain; charset=UTF-8
-    body:
-      encoding: UTF-8
-      string: 'error: bad request - no such identifier'
-    http_version: 
-  recorded_at: Mon, 15 Feb 2016 13:28:53 GMT
-- request:
-    method: post
-    uri: https://doi.test.datacite.org/shoulder/doi:10.7052/FK2
-    body:
-      encoding: UTF-8
-      string: |-
-        _target: http://google.com
-        _status: public
-        datacite.creator: Jeremy Friesen, Rajesh Balekai
-        datacite.title: My Article
-        datacite.publisher: Me Myself and I
-        datacite.publicationyear: 2013
-    headers:
-      Accept:
-      - text/plain
-      Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
-      - text/plain
-      Content-Length:
-      - '185'
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Basic YXBpdGVzdDphcGl0ZXN0
-  response:
-    status:
-      code: 201
-      message: CREATED
-    headers:
-      Date:
-      - Tue, 21 Feb 2017 16:14:17 GMT
-      Server:
-      - Apache/2.2.17 (Unix) mod_ssl/2.2.17 OpenSSL/1.0.1k-fips mod_wsgi/4.4.9 Python/2.7.12
-      Content-Length:
-      - '55'
+      - keep-alive
+      Status:
+      - 400 Bad Request
+      Cache-Control:
+      - no-cache
       Vary:
-      - Accept-Language,Cookie
-      Content-Language:
-      - en
-      Content-Type:
-      - text/plain; charset=UTF-8
+      - Accept-Encoding, Origin
+      Content-Encoding:
+      - gzip
+      X-Request-Id:
+      - 7a4dfa62-e648-4f3b-990f-b56ed40f604b
+      X-Runtime:
+      - '0.009527'
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
+      Server:
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
     body:
-      encoding: UTF-8
-      string: 'success: doi:10.7052/FK2PZ57796 | ark:/b7052/fk2pz57796'
-    http_version: 
-  recorded_at: Tue, 21 Feb 2017 16:14:18 GMT
-recorded_with: VCR 3.0.3
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIADWzm1wAA6pWSi0qyi8qVrKKrlYqLkksKQUylUwMDJR0lEoyS3JSgbzI/FKFvNTUFIWSfIWCovyyzJRUhUSFgsTKnPzEFIW0/Jyc/PLMvHSFkoxUBa9gfz/HAE+F4oLUZKXa2FoAAAAA//8DAEEfbh5gAAAA
+      http_version: 
+      recorded_at: Wed, 27 Mar 2019 17:30:29 GMT
+      recorded_with: VCR 4.0.0

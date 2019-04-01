@@ -20,7 +20,7 @@ module Hydra::RemoteIdentifier
       let(:expected_doi) {
         # From the doi-create cassette
         {
-          identifier: "doi:10.7052/FK2PZ57796",
+          identifier: "doi:/FK2PZ57796",
           identifier_url: "https://doi.test.datacite.org/id/doi:10.7052/FK2PZ57796"
         }
       }
@@ -43,7 +43,7 @@ module Hydra::RemoteIdentifier
       end
 
       context '.call' do
-        it 'should post to remote service', VCR::SpecSupport(cassette_name: 'doi-create') do
+        it 'should post to remote service' do
            expect(subject.call(payload)).to eq(expected_doi)
         end
 

@@ -11,8 +11,8 @@ module Hydra::RemoteIdentifier
       {
         username: 'apitest',
         password: 'apitest',
-        shoulder: 'doi:10.7052/FK2',
-        url: "https://doi.test.datacite.org/",
+        shoulder: '10.23676',
+        url: "https://CIN.TEST:ox6iQPX2tWcveNoUfM3qdf82aoeP@api.test.datacite.org/dois",
         resolver_url: 'http://dx.doi.org/'
       }
 
@@ -61,22 +61,28 @@ module Hydra::RemoteIdentifier
       end
 
       def request(data, payload)
-        response = RestClient.post(uri_for_request(payload).to_s, data, content_type: 'text/plain', accept: 'text/plain')
-        matched_data = /\Asuccess:(.*)(?<doi>doi:[^\|]*)(.*)\Z/.match(response.body)
-        { identifier: matched_data[:doi].strip, identifier_url: doi_service_url(matched_data[:doi].strip) }
-      rescue RestClient::Exception => e
-        raise(RemoteServiceError.new(e, uri_for_request(payload), data))
+        response = RestClient.post(TEST_CONFIGURATION[:url], data, content_type: 'application/json')
+        response.match('(?<="doi": )".*"')
+        rescue RestClient::Exception => e
+          raise(RemoteServiceError.new(e, uri_for_request(payload), data))
       end
 
       def data_for_request(payload)
-        data = []
-        data << "_target: #{payload.fetch(:target)}"
-        data << "_status: #{payload.fetch(:status)}"
-        data << "datacite.creator: #{Array(payload.fetch(:creator)).join(', ')}"
-        data << "datacite.title: #{Array(payload.fetch(:title)).join('; ')}"
-        data << "datacite.publisher: #{Array(payload.fetch(:publisher)).join(', ')}"
-        data << "datacite.publicationyear: #{payload.fetch(:publicationyear)}"
-        data.join("\n")
+        payload_hash = {
+          data: {
+            type: "dois",
+            attributes: {
+              doi: "10.23676/ucl-#{(0...8).map { (65 + rand(26)).chr }.join}",
+              event: "public",
+              creators: Array(payload.fetch(:creator)).map { |name| { "name": name } },
+              titles: Array(payload.fetch(:title)).map { |title| { "title": title } },
+              publisher: payload.fetch(:publisher),
+              publicationYear: payload.fetch(:publicationyear)
+            }
+          }
+        }
+        payload_hash.to_json
+  
       end
 
       def default_resolver_url
