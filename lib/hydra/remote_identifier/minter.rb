@@ -23,7 +23,11 @@ module Hydra
       private
 
       def payload
-        target.extract_payload
+        payload = target.extract_payload
+        if target.respond_to?(:target)
+          payload["work_type"] = target.target.class.to_s
+        end
+        payload
       end
 
       def update_target(response)
