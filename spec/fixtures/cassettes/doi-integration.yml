@@ -1,138 +1,116 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://apitest:apitest@ezid.lib.purdue.edu/shoulder/doi:10.5072/FK2
+    method: get
+    uri: https://api.test.datacite.org/dois/random?prefix=10.23676
     body:
-      encoding: UTF-8
-      string: |-
-        _target: http://google.com
-        datacite.creator: my creator
-        datacite.title: my title
-        datacite.publisher: my publisher
-        datacite.publicationyear: 2013
+      encoding: US-ASCII
+      string: ''
     headers:
       Accept:
-      - "*/*; q=0.5, application/xml"
+      - "*/*"
       Accept-Encoding:
       - gzip, deflate
-      Content-Type:
-      - text/plain
-      Content-Length:
-      - '144'
       User-Agent:
-      - Ruby
+      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.5.5p157
   response:
     status:
-      code: 201
-      message: CREATED
+      code: 200
+      message: OK
     headers:
       Date:
-      - Thu, 03 Oct 2013 19:10:22 GMT
-      Server:
-      - Apache/2.2.17 (Unix) DAV/2 mod_wsgi/3.3 Python/2.7 mod_ssl/2.2.17 OpenSSL/0.9.8o
-      Vary:
-      - Cookie
-      Set-Cookie:
-      - sessionid=995dadb966d7013e9251daf61b6122ba; Path=/
-      Content-Length:
-      - '53'
+      - Mon, 06 May 2019 15:40:55 GMT
       Content-Type:
-      - text/plain; charset=UTF-8
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      Content-Encoding:
+      - gzip
+      X-Request-Id:
+      - 7ed4bca5-977c-415a-9e09-e23de0154448
+      Etag:
+      - W/"710b83494de195afa3bee0bda6bf78d7"
+      X-Runtime:
+      - '0.004787'
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
+      Server:
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
     body:
-      encoding: UTF-8
-      string: 'success: doi:10.5072/FK2FT8XZZ | ark:/b5072/fk2ft8xzz'
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAIdV0FwAA6pWSsnPVLJSMjTQMzI2MzfTL0zMzdUtMjA1UaoFAAAA//8DAPDUYHIcAAAA
     http_version: 
-  recorded_at: Thu, 03 Oct 2013 19:10:25 GMT
+  recorded_at: Mon, 06 May 2019 15:40:55 GMT
 - request:
     method: post
-    uri: https://apitest:apitest@ezid.lib.purdue.edu/shoulder/doi:10.5072/FK2
+    uri: https://api.test.datacite.org/dois
     body:
       encoding: UTF-8
-      string: |-
-        _target: http://google.com
-        datacite.creator: my creator
-        datacite.title: my title
-        datacite.publisher: my publisher
-        datacite.publicationyear: 2013
+      string: '{"data":{"type":"dois","attributes":{"doi":"10.23676/qamm-r054","event":"public","creators":[{"name":"my
+        creator"}],"titles":[{"title":"my title"}],"publisher":"my publisher","publicationYear":"2013","url":"http://google.com","types":{"resourceTypeGeneral":null,"resourceType":"#<Class:0x00007ffadd20a460>"}}}}'
     headers:
       Accept:
-      - "*/*; q=0.5, application/xml"
+      - "*/*"
       Accept-Encoding:
       - gzip, deflate
-      Content-Type:
-      - text/plain
-      Content-Length:
-      - '144'
       User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 201
-      message: CREATED
-    headers:
-      Date:
-      - Fri, 14 Mar 2014 14:23:34 GMT
-      Server:
-      - Apache/2.2.17 (Unix) mod_ssl/2.2.17 OpenSSL/1.0.1e mod_wsgi/3.3 Python/2.7.6
-      Vary:
-      - Cookie
-      Set-Cookie:
-      - sessionid=1pb8durj02ezream0nnjgepqgsliv12s; httponly; Path=/
-      Content-Length:
-      - '53'
+      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.5.5p157
       Content-Type:
-      - text/plain; charset=UTF-8
-    body:
-      encoding: UTF-8
-      string: 'success: doi:10.5072/FK2NC6D3G | ark:/b5072/fk2nc6d3g'
-    http_version: 
-  recorded_at: Fri, 14 Mar 2014 14:23:38 GMT
-- request:
-    method: post
-    uri: https://ezid.lib.purdue.edu/shoulder/doi:10.5072/FK2
-    body:
-      encoding: UTF-8
-      string: |-
-        _target: http://google.com
-        _status: public
-        datacite.creator: my creator
-        datacite.title: my title
-        datacite.publisher: my publisher
-        datacite.publicationyear: 2013
-    headers:
-      Accept:
-      - text/plain
-      Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
-      - text/plain
+      - application/json
       Content-Length:
-      - '160'
-      User-Agent:
-      - Ruby
+      - '310'
       Authorization:
       - Basic YXBpdGVzdDphcGl0ZXN0
   response:
     status:
       code: 201
-      message: CREATED
+      message: Created
     headers:
       Date:
-      - Tue, 21 Feb 2017 16:14:18 GMT
-      Server:
-      - Apache/2.2.17 (Unix) mod_ssl/2.2.17 OpenSSL/1.0.1k-fips mod_wsgi/4.4.9 Python/2.7.12
-      Content-Length:
-      - '55'
-      Vary:
-      - Accept-Language,Cookie
-      Content-Language:
-      - en
+      - Mon, 06 May 2019 15:40:56 GMT
       Content-Type:
-      - text/plain; charset=UTF-8
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      Content-Encoding:
+      - gzip
+      X-Credential-Username:
+      - cin.test
+      X-Request-Id:
+      - 79f32e85-fbcd-4b0e-9bfa-d79ee488069d
+      Location:
+      - https://api.test.datacite.org/dois/2374937
+      Etag:
+      - W/"4fbfe00d23fe324d72a096707031291d"
+      X-Runtime:
+      - '0.085029'
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
+      Server:
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
     body:
-      encoding: UTF-8
-      string: 'success: doi:10.5072/FK2K64HF49 | ark:/b5072/fk2k64hf49'
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAIhV0FwAA5RWbZOaSBD+Kxb37ZLdICy7wbq6OsNmUQ+JpShKKh+GYYRxh5fAgGLK/349IrK7l6vU7Zd1+vXp7pmn+SEFiCNp8EOigTSQ+vKtot4/3H/4juL4Jpe1O+m9xOuMgC5IaQEnxHlO/ZKTQniB8L/cspxs6eGFFmRFuW1kLw1pQBJOt5TkEDIpGXsv4Zwgnorz1x9SgmKRP657F7F0+gaoKGekMTj/bCyan0KflT6jRUTyRtEdIXqacEQToWrSnZUYcZomG4JArMh9VaD1dwTzDhX4nWtPO6TQPnI9MJSEJQpJexadO7cpJ0Va5pg4IDAJZEastXmpAqi//WEwVBQD+SDD38N2i4JAkdHdvfyndBLWDBIG43+3rKDHDsg2zWPUAa/ADmq7pqRhxAuLFvxaBSlwTjPRgKtTSFIrbZrSxS2TgCbhnGxJThLcJTzEUJA0e9TvfHcfBvGqxgqr/J1Mp4u7/Zh+Yn5sV57JSu8o09VqblpOSGfHu79nownDit7Hsc3Go4j7pnb8kkRH5MgUjeYyfkwrSw3UoNbUaa1VOMbVdDfcTxf6xlkenI0SMd/9zJGrHQPzqdwoS9rGmS0maTCa77/Qj5D7Sd64dhaYy9JXJ4ml2jtkrvhmoefeelJ67p7bxjgkIzv7klx0y0O1UZ5k5Orl/4/16WqPFTv13H5kxfMIMO7Qes6sWK+9Wufeeh5ZCmc41phvyLKl9BnYPG+EHPrgGeN3Bh2GM5M9e64GWLzMW49D5M6Zn8wzL2YMs7mGzaU+fp7PFovxu6kzLKe7qWIfN9Vy+WQ7i/5i+riUZ4aeeeaqDEwWI3dVz8I0HD8edjheAS69xjCPsTF8JTvbCJkx/LhRJwxwVfhZi3x3+c5fP4dX2W5fvdUL3MLPUuzac59kX73UYuhvc34ETLJvro5tvtloDv09sFnc18btb0OXoXeF5zQ+ltrI2xh4tKK+yY4wi7rx+9TfxIcMwx0R+F7pm9r3gTspkGsDFrivjAF+6N9ueJger/Y7qCnzFc2DGlo/BeZ8FPfCEnfYgFmu7SpYT3YCG3BMmYsHEXGeDT58CNM0ZOQWp/GFfeD1LvMrBcSEI0HDq/aZyvCccUTiTnJ542emaE+0GGJOKzhvESsIqDlwg2DqHG25JMgCFZ0zkJN4u7MX/HTmUyKIHwhPv5G1G/ne6WuDO3mg3d8C/3jnKCEwBbz34BVdApdeHFVRbhb8KlLLXoJPIpqdeREzCq04L5KXawjT5BZolXfLpzEspNNJtCugqPP5+u0kpDTBrAwEhK+/jPJ2i102zDKhZ6bkdS/d9gyISJMEAPcs6ucop6To3fQciNgbYpyWiYhc1LGfilEbY/vW+bxwQFa3O0S/7BrM7SbDBP4VvRVKelPKpKv2c4yoiAFDTxnK/yrxLQlK6RUvX6k6BWPByNLv7TX7+TDVG0Vx+veD/sNA1dthvp0TGGnCSNUGfbU16i4Wz0u4VxEqZrCT9mkeNKKfjTLL0wo2ef6zYXYTaK2aSTafCJcviWaYbz5EXnpebE9i3t9O/wAAAP//AwD/kqEFuggAAA==
     http_version: 
-  recorded_at: Tue, 21 Feb 2017 16:14:19 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Mon, 06 May 2019 15:40:55 GMT
+recorded_with: VCR 4.0.0

@@ -10,6 +10,7 @@ module Hydra::RemoteIdentifier
         def doi_status; 'public'; end
         def creator; 'my creator'; end
         def title; 'my title'; end
+        def profile; "datacite"; end
         def publisher; 'my publisher'; end
         def publicationyear; '2013'; end
         attr_accessor :set_identifier
@@ -18,7 +19,7 @@ module Hydra::RemoteIdentifier
 
     let(:target) { target_class.new }
     let(:expected_doi) {
-      {:identifier=>"doi:10.5072/FK2K64HF49", :identifier_url=>"https://ezid.lib.purdue.edu/id/doi:10.5072/FK2K64HF49"} # From the doi-create cassette
+      {:identifier=>"doi:10.23676/qamm-r054", :identifier_url=>"https://api.test.datacite.org/dois/10.23676/qamm-r054"} # From the doi-create cassette
     }
     let(:doi_options) { RemoteServices::Doi::TEST_CONFIGURATION }
 
@@ -28,6 +29,7 @@ module Hydra::RemoteIdentifier
           doi.register(target_class) do |map|
             map.target :url
             map.status :doi_status
+            map.profile :profile
             map.identifier_url :identifier_url
             map.creator :creator
             map.title :title
@@ -113,7 +115,7 @@ module Hydra::RemoteIdentifier
     context '.remote_uri_for' do
       it {
         expect(Hydra::RemoteIdentifier.remote_uri_for(:doi, expected_doi.fetch(:identifier))).
-        to eq(URI.parse(File.join(doi_options.fetch(:resolver_url), expected_doi.fetch(:identifier))))
+        to eq(URI.parse(File.join(doi_options.fetch(:resolver_url), expected_doi.fetch(:identifier).gsub(/doi:/, ''))))
       }
     end
 
@@ -141,17 +143,17 @@ module Hydra::RemoteIdentifier
     end
 
     context '.mint' do
-      it 'works!', VCR::SpecSupport(record: :new_episodes, cassette_name: 'doi-integration') do
+      it 'works!', VCR::SpecSupport(cassette_name: 'doi-integration') do
         expect {
           Hydra::RemoteIdentifier.mint(:doi, target)
         }.to change(target, :set_identifier).from(nil).to(expected_doi)
       end
 
-      it 'returns true minting occurred', VCR::SpecSupport(record: :new_episodes, cassette_name: 'doi-integration') do
+      it 'returns true minting occurred', VCR::SpecSupport(cassette_name: 'doi-integration') do
         expect(Hydra::RemoteIdentifier.mint(:doi, target)).to eq(true)
       end
 
-      it 'returns false if the target is not configured for identifiers' do
+      it 'returns false if the target is not configured for identifiers', VCR::SpecSupport(cassette_name: 'doi-integration') do
         expect(Hydra::RemoteIdentifier.mint(:doi, double)).to eq(false)
       end
 
@@ -163,7 +165,7 @@ module Hydra::RemoteIdentifier
           username: ENV['DOI_API_USERNAME'],
           password: ENV['DOI_API_PASSWORD'],
           shoulder: 'doi:10.5072/FK2',
-          url: "https://ezid.lib.purdue.edu/"
+          url: "https://ez.test.datacite.org/"
         )
       }
 
