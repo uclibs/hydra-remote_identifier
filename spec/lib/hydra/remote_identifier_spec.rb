@@ -19,7 +19,7 @@ module Hydra::RemoteIdentifier
 
     let(:target) { target_class.new }
     let(:expected_doi) {
-      {:identifier=>"doi:10.23676/qamm-r054", :identifier_url=>"https://api.test.datacite.org/dois/10.23676/qamm-r054"} # From the doi-create cassette
+      {:identifier=>"doi:10.23676/kp41-9y80", :identifier_url=>"https://api.test.datacite.org/dois/10.23676/kp41-9y80"} # From the doi-create cassette
     }
     let(:doi_options) { RemoteServices::Doi::TEST_CONFIGURATION }
 
