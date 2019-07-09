@@ -99,7 +99,8 @@ module Hydra::RemoteIdentifier
             data: {
               type: "dois",
               attributes: {
-                doi: JSON.parse(RestClient.get(@url + "/random?prefix=" + @shoulder))["dois"].first,
+                prefix: @shoulder,
+                # doi: JSON.parse(RestClient.get(@url + "/random?prefix=" + @shoulder))["dois"].first,
                 event: payload.fetch(:status),
                 creators: Array(payload.fetch(:creator)).map { |name| { "name": name } },
                 titles: Array(payload.fetch(:title)).map { |title| { "title": title } },
