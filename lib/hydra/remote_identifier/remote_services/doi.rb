@@ -4,7 +4,6 @@ require 'hydra/remote_identifier/remote_service'
 require 'hydra/remote_identifier/exceptions'
 require 'active_support/core_ext/hash/indifferent_access'
 
-
 module Hydra::RemoteIdentifier
   module RemoteServices
     class Doi < Hydra::RemoteIdentifier::RemoteService
@@ -64,6 +63,7 @@ module Hydra::RemoteIdentifier
         if payload[:identifier_url].nil?
           # response = RestClient.post(@username + ":" + @url + "@", data, content_type: 'application/json', username: @username, password: @password)
           datacite_resource = RestClient::Resource.new @url, @username, @password
+          
           response = datacite_resource.post data, content_type: 'application/json'
         else
           doi_id = JSON.parse(
@@ -99,7 +99,8 @@ module Hydra::RemoteIdentifier
             data: {
               type: "dois",
               attributes: {
-                doi: JSON.parse(RestClient.get(@url + "/random?prefix=" + @shoulder))["doi"],
+                prefix: @shoulder,
+                # doi: JSON.parse(RestClient.get(@url + "/random?prefix=" + @shoulder))["dois"].first,
                 event: payload.fetch(:status),
                 creators: Array(payload.fetch(:creator)).map { |name| { "name": name } },
                 titles: Array(payload.fetch(:title)).map { |title| { "title": title } },

@@ -25,15 +25,15 @@ module Hydra::RemoteIdentifier
       let(:update_payload) {
         {
           status: "hide",
-          identifier_url: "https://api.test.datacite.org/dois/10.23676/z8b5-t823"
+          identifier_url: "https://api.test.datacite.org/dois/10.23676/z2tz-ev55"
         }
       }
 
       let(:expected_doi) {
         # From the doi-create cassette
         {
-          identifier: "doi:10.23676/z8b5-t823",
-          identifier_url: "https://api.test.datacite.org/dois/10.23676/z8b5-t823"
+          identifier: "doi:10.23676/z2tz-ev55",
+          identifier_url: "https://api.test.datacite.org/dois/10.23676/z2tz-ev55"
         }
       }
 
