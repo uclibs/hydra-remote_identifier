@@ -129,7 +129,7 @@ module Hydra::RemoteIdentifier
       end
 
       def default_resolver_url
-        'http://dx.doi.org/'
+        'https://doi.org/'
       end
 
       def doi_service_url(identifier)
